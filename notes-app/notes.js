@@ -19,9 +19,9 @@ const addNote = function(title, body) {
     });
   
     saveNotes(notes);
-    console.log('New note added');
+    console.log(chalk.green.inverse('New note added'));
   } else {
-    console.log('Note title already exists');
+    console.log(chalk.red.inverse('Note title already exists'));
   }
 }
 
@@ -34,9 +34,9 @@ const removeNote = function(title) {
 
   if (notes.length > notesToKeep.length) {
     saveNotes(notesToKeep);
-    console.log(chalk.green('Note Removed'));
+    console.log(chalk.green.inverse('Note Removed'));
   } else {
-    console.log(chalk.red('Note Not Found'));
+    console.log(chalk.red.inverse('Note Not Found'));
   }
 }
 

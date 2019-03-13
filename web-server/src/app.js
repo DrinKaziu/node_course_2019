@@ -47,8 +47,7 @@ app.get('/weather', (req, res) => {
       error: 'You must provide a location'
     });
   } 
-  geocode(req.query.address, (error, data) => {
-    const { latitude, longitude, location } = data;
+  geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {   // latitude, longitude and location come from destructuing data
     if (error) {
       return res.send({ error });
     }

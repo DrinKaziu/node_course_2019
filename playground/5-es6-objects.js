@@ -26,7 +26,7 @@ const product = {
 
 // console.log(productLabel, price, stock, rating);
 
-const transaction = (type, {label, stock}) => {
+const transaction = (type, {label, stock = 0} = {}) => { //default values - {} (in case product is not provided below) and 0 for stock
   console.log(type, label, stock);
 }
 

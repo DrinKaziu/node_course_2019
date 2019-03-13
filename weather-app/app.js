@@ -5,6 +5,7 @@ const address = process.argv[2];
 
 geocode(address, (error, data) => {
   const { latitude, longitude, location } = data
+  
   if (address === undefined) {
     console.log('Please provide a location.');
   } else {

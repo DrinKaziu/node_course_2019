@@ -61,7 +61,7 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
   //   _id: new ObjectID('5c8c0676539b38c79c1552c5')
   // }, {
   //   $inc: {
-  //     age: -1
+  //     age: 1
   //   }
   // }).then((result) => {
   //   console.log(result)
@@ -69,16 +69,32 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
   //   console.log(error);
   // })
 
-  db.collection('tasks').updateMany({
-    completed: false
-  }, {
-    $set: {
-      completed: true
-    }
+  // db.collection('tasks').updateMany({
+  //   completed: false
+  // }, {
+  //   $set: {
+  //     completed: true
+  //   }
+  // }).then((result) => {
+  //   console.log(result);
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+
+  // db.collection('users').deleteMany({
+  //   age: 36
+  // }).then((result) => {
+  //   console.log(result);
+  // }).catch((error) => {
+  //   console.log(error);
+  // });
+
+  db.collection('tasks').deleteOne({
+    description: 'Take a nap'
   }).then((result) => {
     console.log(result);
   }).catch((error) => {
     console.log(error);
-  })
+  });
 });
 

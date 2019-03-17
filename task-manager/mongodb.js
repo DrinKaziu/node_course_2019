@@ -41,20 +41,44 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
   //   console.log(count);
   // })
 
-  db.collection('tasks').findOne({_id: new ObjectID('5c8c09b51646b9c7dec19041')}, (error, task) => {
-    if (error) {
-      return console.log(error);
+  // db.collection('tasks').findOne({_id: new ObjectID('5c8c09b51646b9c7dec19041')}, (error, task) => {
+  //   if (error) {
+  //     return console.log(error);
+  //   }
+
+  //   console.log(task);
+  // });
+
+  // db.collection('tasks').find({completed: false}).toArray((error, tasks) => {
+  //   if (error) {
+  //     return console.log(error);
+  //   }
+
+  //   console.log(tasks);
+  // })
+
+  // db.collection('users').updateOne({
+  //   _id: new ObjectID('5c8c0676539b38c79c1552c5')
+  // }, {
+  //   $inc: {
+  //     age: -1
+  //   }
+  // }).then((result) => {
+  //   console.log(result)
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+
+  db.collection('tasks').updateMany({
+    completed: false
+  }, {
+    $set: {
+      completed: true
     }
-
-    console.log(task);
-  });
-
-  db.collection('tasks').find({completed: false}).toArray((error, tasks) => {
-    if (error) {
-      return console.log(error);
-    }
-
-    console.log(tasks);
+  }).then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
   })
 });
 
